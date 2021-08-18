@@ -1,6 +1,15 @@
 " 设置不与VI兼容
 set nocompatible
 
+" 设置backspace模式
+" 0 same as \":set backspace=\" VI compatible
+" 1 same as \":set backspace=inent,eol\"
+" 2 same as \":set backspace=indent,eol,start \"
+" indent 允许删除自动缩进的内容
+" eol 允许删除换行符
+" start 允许删除进入插入模式前已有的内容
+set backspace=indent,start
+
 " 配置256颜色显示
 set t_Co=256
 
@@ -56,7 +65,7 @@ set relativenumber
 
 " 设置自动换行
 set wrap
-set textwidth=80
+set textwidth=180
 set linebreak
 set wrapmargin=2
 
@@ -79,8 +88,23 @@ hi Search term=bold cterm=bold ctermbg=240
 " 将高亮的结果取消高亮
 nnoremap <tab> :noh<return><esc>
 
-" 保留撤销历史
-set undofile
+" 取消撤销历史
+set noundofile
+
+" 取消备份文件
+set nobackup
+
+" 设置交换文件
+set swapfile
+
+" 设置备份文件 交换文件 操作历史文件的保存位置
+" // 表示文件名带有绝对路径,路径中用%替换目录分隔符
+" 备份文件 文件保存时创建 原文件名末尾添加~
+" 交换文件 文件打开时创建 文件名开头加. 结尾加.swp 文件关闭时自动删除
+" 撤销文件 文件名结尾添加.un~
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
 
 " 自动切换工作目录
 set autochdir
