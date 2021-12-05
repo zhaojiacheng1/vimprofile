@@ -85,8 +85,13 @@ set smartcase
 " 高亮结果显示颜色设置
 hi Search term=bold cterm=bold ctermbg=240
 
-" 将高亮的结果取消高亮
-nnoremap <tab> :noh<return><esc>
+" 将高亮的结果取消高亮 <CR> 表示执行
+nnoremap <tab> :noh<CR>
+"nnoremap <tab> :noh<return><esc>
+
+" 多文件编辑时 shift -> 表示向后切换文件 shift <- 表示向前文件 
+nnoremap <S-Right> :n<CR>
+nnoremap <S-Left> :N<CR>
 
 " 取消撤销历史
 set noundofile
