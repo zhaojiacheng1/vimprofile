@@ -19,6 +19,12 @@ set cursorline
 " 高亮行配置
 hi CursorLine term=bold cterm=bold ctermbg=240
 
+" 设置列高亮
+set cursorcolumn
+
+" 高亮列配置
+hi CursorColumn term=bold cterm=bold ctermbg=240
+
 " 设置显示行号
 set number
 
